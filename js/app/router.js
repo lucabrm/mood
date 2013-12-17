@@ -4,10 +4,7 @@ define(function (require) {
 
     var $           = require('jquery'),
         Backbone    = require('backbone'),
-
-        SlugView    = require('app/views/Slug'),
-        Htemp       = require('tpl/compiled-templates');
-        
+        SlugView    = require('app/views/Slug');
         
        
     return Backbone.Router.extend({

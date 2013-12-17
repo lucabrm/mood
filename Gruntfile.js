@@ -27,8 +27,15 @@ module.exports = function(grunt) {
   handlebars: {
 
     build: {
-      src: 'js/tpl/*',
-      dest: 'js/tpl/compiled-templates.js'
+      options: {
+        amd:true,
+        processName: function(filePath) {
+          return filePath.replace('js/tpl/','').replace('.hbs','');
+        }
+      },
+      files: {
+        "js/tpl/compiled-templates.js": "js/tpl/*.hbs"
+      },
     },
     hwatch: {
       options: {
@@ -37,6 +44,15 @@ module.exports = function(grunt) {
       files: {
         "js/tpl/compiled-templates.js": "js/tpl/*.hbs"
       },
+    }
+  },
+  requirejs: {
+    compile: {
+      options: {
+        baseUrl: "js/lib",
+        mainConfigFile: "js/app.js",
+        out: "js/app2.js"
+      }
     }
   },
   watch: {
@@ -54,8 +70,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-handlebars');
   grunt.loadNpmTasks('grunt-contrib-watch');
-
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.registerTask('default', ['uglify:test','cssmin','handlebars']);
   grunt.registerTask('hbs', ['watch']);
+  grunt.registerTask('require', ['requirejs']);
 
 };

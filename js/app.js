@@ -9,12 +9,12 @@ require.config({
 
     },
 
-    map: {
+   /* map: {
         '*': {
             'app/models/employee': 'app/models/memory/employee'
         }
     },
-
+    */
     shim: {
         'backbone': {
             deps: ['underscore', 'jquery'],
@@ -28,27 +28,12 @@ require.config({
         },
        
         'tpl/compiled-templates':{
-            deps: [ 'handlebars' ],
-            exports: 'Htemp'
-
+            deps: [ 'handlebars' ]
         }
     }
 });
-/*
-require(['jquery', 'backbone', 'app/router', 'tpl/compiled-templates'], function ($, Backbone, Router, Templates) {
 
-    var router = new Router();
-
-    $("body").on("click", ".back-button", function (event) {
-        event.preventDefault();
-        window.history.back();
-    });
-
-    Backbone.history.start();
-});
-*/
-
-require(['jquery', 'backbone', 'app/router', 'tpl/compiled-templates' ], function ($, Backbone,Router,Htemp) {
+require(['jquery', 'backbone', 'app/router' ], function ($, Backbone,Router) {
 
 
     var router = new Router();
