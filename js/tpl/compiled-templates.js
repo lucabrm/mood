@@ -2,7 +2,7 @@ define(['handlebars'], function(Handlebars) {
 
 this["JST"] = this["JST"] || {};
 
-this["JST"]["js/tpl/home.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["JST"]["home"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
@@ -11,7 +11,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"container\">\n  Questa è la home page\n</div>";
   });
 
-this["JST"]["js/tpl/slug.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["JST"]["slug"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;

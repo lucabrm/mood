@@ -3,15 +3,13 @@ define(['jquery', 'backbone', 'handlebars','tpl/compiled-templates'], function (
     var SlugView = Backbone.View.extend({
         
         initialize: function () {
-            console.log(Templates);
+            console.log(Templates['slug']);
             this.template = Templates['slug'];
             this.render();
         },
 
         render: function () {
-            this.$el.html(
-                this.template(
-                    {slug: this.options.slug}));
+            this.$el.html(this.template({slug: this.options.slug}));
             return this;
         }
 

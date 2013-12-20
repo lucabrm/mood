@@ -7,8 +7,13 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'js/lib/*.js',
-        dest: 'js/lib/<%= pkg.name %>.min.js'
+         files: [{
+            expand: true,
+            src:  '*.js',
+            dest: 'js/lib',
+            cwd: 'js/lib',
+            ext:'.min.js'
+        }]
       },
       test: {
         src: 'js/lib/*.js',
